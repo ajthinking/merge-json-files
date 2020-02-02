@@ -1,17 +1,16 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  test_merge_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to test the merge
     steps:
-    - name: Hello world action step
-      id: hello
+    - name: Merge two files
+      id: merged
       uses: ajthinking/merge-json-files@v1
       with:
-        who-to-greet: 'Mona the Octocat'
+        path1: 'data1.json'
+        path2: 'data2.json'
     # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
-    - name: Get the output dir
-      run: echo "The dir was ${{ steps.hello.outputs.current_dirname }}"      
+    - name: ECHO output
+      run: echo "The time was ${{ steps.merged.outputs.data3 }}"

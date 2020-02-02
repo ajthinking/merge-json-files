@@ -1,15 +1,17 @@
 name: 'Merge JSON Files'
 description: 'Merge one json file into another.'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  path1:
+    description: 'path1'
     required: true
-    default: 'World'
+    default: 'data1.json'
+  path2:
+    description: 'path2'
+    required: true
+    default: 'data2.json'    
 outputs:
-  time:
-    description: 'The time we greeted you'
-  current_dirname:
-    description: 'The __dirname'    
+  data3:
+    description: 'Two json files merged.'    
   
 runs:
   using: 'node12'
