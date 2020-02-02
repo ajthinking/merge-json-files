@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Merge two files
       id: merged
-      uses: ajthinking/merge-json-files@v1.0.7
+      uses: ajthinking/merge-json-files@v1.0.8
       with:
         additions: 'data1.json'
         target: 'data2.json'
