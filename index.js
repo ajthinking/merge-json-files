@@ -2,11 +2,13 @@ const core = require('@actions/core');
 const fs = require('fs');
 
 try {
+    console.log("We are in " + __dirname + " alright?");
+
     let data1 = JSON.parse(
-        fs.readFileSync('data1.json')
+        fs.readFileSync('/data1.json')
     );
     let data2 = JSON.parse(
-        fs.readFileSync('data2.json')
+        fs.readFileSync('/data2.json')
     );
 
     let data3 = {
