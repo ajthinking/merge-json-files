@@ -15,6 +15,8 @@ try {
         ...data1,
         ...data2
     }
+
+    data3 = JSON.stringify(data3);
     
     core.setOutput("data3", data3);
 
