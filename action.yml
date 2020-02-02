@@ -1,17 +1,14 @@
 name: 'Merge JSON Files'
 description: 'Merge one json file into another.'
 inputs:
-  path1:
-    description: 'path1'
+  additions:
+    description: 'additions path'
     required: true
     default: 'data1.json'
-  path2:
-    description: 'path2'
+  target:
+    description: 'target path'
     required: true
     default: 'data2.json'    
-outputs:
-  data3:
-    description: 'Two json files merged.'    
   
 runs:
   using: 'node12'

@@ -2,7 +2,6 @@ const core = require('@actions/core');
 const fs = require('fs');
 
 try {
-    console.log(`Inside directory ${__dirname}!`)
     // Mission: merge `additions` into `target`
     let additions = core.getInput('additions')
     let target = core.getInput('target')

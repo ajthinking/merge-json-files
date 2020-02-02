@@ -9,7 +9,5 @@ jobs:
       id: merged
       uses: ajthinking/merge-json-files@v1.0.6
       with:
-        path1: 'data1.json'
-        path2: 'data2.json'
-    - name: ECHO output
-      run: echo "The data was merged as ${{ steps.merged.outputs.data3 }}"
+        additions: 'data1.json'
+        target: 'data2.json'
