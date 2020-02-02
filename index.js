@@ -3,33 +3,36 @@ const fs = require('fs');
 
 try {
     console.log(`Inside directory ${__dirname}!`)
+    // Mission: merge `additions` into `target`
+    let additions = $core.getInput('additions')
+    let target = $core.getInput('target')
+    let additionsPath = `${__dirname}/${additions}`;
+    let targetPath = `${__dirname}/${target}`;
 
-    let data1 = JSON.parse(
-        fs.readFileSync(__dirname + '/data1.json')
+    let additionsData = JSON.parse(
+        fs.readFileSync(additionsPath)
     );
-    let data2 = JSON.parse(
-        fs.readFileSync(__dirname + '/data2.json')
+    let targetData = JSON.parse(
+        fs.readFileSync(targetPath)
     );
 
-    let data3 = {
-        ...data1,
-        ...data2
+    let resultData = {
+        ...additionsData,
+        ...targetData
     }
 
-    data3 = JSON.stringify(data3);
-    
-    core.setOutput("data3", data3);
+    fs.writeFile(
+        targetPath,
+        JSON.stringify(resultData),
+        function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log(`The file ${targetPath} was saved!`);
+            let resultData = fs.readFileSync(targetPath);
+            console.log("Now it has data: " . resultData);
+        }); 
 
 } catch (error) {
     core.setFailed(error.message);
 }
-
-/* OLD
-    core.setOutput("time", time);
-    const github = require('@actions/github');
-    //const nameToGreet = core.getInput('who-to-greet');
-    console.log(`Hello ${nameToGreet}!`);
-    const time = (new Date()).toTimeString();
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
-*/
