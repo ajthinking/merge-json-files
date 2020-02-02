@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const fs = require('fs');
 
 try {
+    console.log(`Inside directory ${__dirname}!`)
 
     let data1 = JSON.parse(
         fs.readFileSync(__dirname + '/data1.json')
