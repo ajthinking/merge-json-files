@@ -8,6 +8,9 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+  path: # id of output
+    description: 'The __dirname'    
+  
 runs:
   using: 'node12'
   main: 'index.js'
