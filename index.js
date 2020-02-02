@@ -4,8 +4,8 @@ const fs = require('fs');
 try {
     console.log(`Inside directory ${__dirname}!`)
     // Mission: merge `additions` into `target`
-    let additions = $core.getInput('additions')
-    let target = $core.getInput('target')
+    let additions = core.getInput('additions')
+    let target = core.getInput('target')
     let additionsPath = `${__dirname}/${additions}`;
     let targetPath = `${__dirname}/${target}`;
 
