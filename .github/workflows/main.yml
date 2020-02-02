@@ -11,6 +11,5 @@ jobs:
       with:
         path1: 'data1.json'
         path2: 'data2.json'
-    # Use the output from the `hello` step
     - name: ECHO output
       run: echo "The data was merged as ${{ steps.merged.outputs.data3 }}"
