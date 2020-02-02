@@ -13,4 +13,4 @@ jobs:
         path2: 'data2.json'
     # Use the output from the `hello` step
     - name: ECHO output
-      run: echo "The time was ${{ steps.merged.outputs.data3 }}"
+      run: echo "The data was merged as ${{ steps.merged.outputs.data3 }}"
