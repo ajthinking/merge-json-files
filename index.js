@@ -29,7 +29,7 @@ try {
             }
             console.log(`The file ${targetPath} was saved!`);
             let resultData = fs.readFileSync(targetPath);
-            console.log("Now it has data: " . resultData);
+            console.log("Now it has data: " + resultData);
         }); 
 
 } catch (error) {
