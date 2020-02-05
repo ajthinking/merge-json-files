@@ -7,6 +7,6 @@ jobs:
     steps:
     - name: Add the repo to composer.json
       id: merged
-      uses: ajthinking/merge-json-files@v1.0.9
+      uses: ajthinking/merge-json-files@v1.0.10
       with:
         repo_relative_path: 'packages/Ajthinking/PHPFileManipulator'
