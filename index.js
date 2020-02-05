@@ -27,7 +27,7 @@ try {
                 return console.log(err);
             }
             console.log(`composer.json was updated!`);
-            let resultData = fs.readFileSync(composer_path);
+            let resultData = fs.readFileSync(composer_path, "utf8");
             console.log("Review new data below");
             console.log(resultData);
         }); 
