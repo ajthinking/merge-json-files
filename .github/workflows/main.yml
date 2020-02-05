@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test the merge
     steps:
+    - name: Clone Repo
+      uses: actions/checkout@v1    
     - name: Dump runner context
       env:
         runner_context: ${{ toJson(runner) }}
