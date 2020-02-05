@@ -3,13 +3,30 @@ const fs = require('fs');
 
 try {
     let root = JSON.parse(core.getInput('runner_context')).workspace;
+
+    fs.readdir(root, function (err, files) {
+        //handling error
+        if (err) {
+            return console.log('Unable to scan directory: ' + err);
+        } 
+
+        console.log("Listing files :)!.")
+        //listing all files using forEach
+        files.forEach(function (file) {
+            // Do whatever you want to do with the file
+            console.log(file); 
+        });
+    });
+
+
+
     let repo_path = `${root}/${core.getInput('repo_relative_path')}`;
     let composer_path = `${root}/composer.json`;
     let composer_data = JSON.parse(
         fs.readFileSync(composer_path)
     );
 
-    console.log
+    
 
     fs.writeFile(
         composer_path,
