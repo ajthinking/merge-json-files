@@ -5,8 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test the merge
     steps:
+    - name: Dump runner context
+      env:
+        runner_context: ${{ toJson(runner) }}
+      run: echo "$runner_context"
     - name: Add the repo to composer.json
-      id: merged
       uses: ajthinking/merge-json-files@v1.0.15
       with:
+
         repo_relative_path: 'packages/Ajthinking/PHPFileManipulator'
