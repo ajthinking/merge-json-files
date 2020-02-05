@@ -10,4 +10,4 @@ jobs:
       uses: ajthinking/merge-json-files@v1.0.8
       with:
         additions: '{"also": "this"}'
-        target: 'data2.json'
+        target: 'data1.json'
