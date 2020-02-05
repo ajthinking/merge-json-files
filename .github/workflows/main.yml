@@ -12,6 +12,6 @@ jobs:
         runner_context: ${{ toJson(runner) }}
       run: echo "$runner_context"
     - name: Add the repo to composer.json
-      uses: ./.github/merge-json-files
+      uses: ajthinking/merge-json-files@master
       with:
         repo_relative_path: 'packages/Ajthinking/PHPFileManipulator'
