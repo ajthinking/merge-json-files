@@ -5,6 +5,10 @@ inputs:
     description: 'relative path to repo'
     required: true
     default: 'packages/your/repo'    
+  runner_context:
+    description: 'The runner'
+    required: true
+    default: ${{ toJson(runner) }} 
   
 runs:
   using: 'node12'

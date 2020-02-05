@@ -2,12 +2,14 @@ const core = require('@actions/core');
 const fs = require('fs');
 
 try {
-    // Mission: merge `additions` into `target`
-    let repo_path = `${__dirname}/${core.getInput('repo_relative_path')}`;
-    let composer_path = `${__dirname}/composer.json`;
+    let root = JSON.parse(core.getInput('runner_context')).workspace;
+    let repo_path = `${root}/${core.getInput('repo_relative_path')}`;
+    let composer_path = `${root}/composer.json`;
     let composer_data = JSON.parse(
         fs.readFileSync(composer_path)
     );
+
+    console.log
 
     fs.writeFile(
         composer_path,
