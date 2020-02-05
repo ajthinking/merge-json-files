@@ -3,7 +3,7 @@ const fs = require('fs');
 
 try {
     // Mission: merge `additions` into `target`
-    let repo_path = `${__dirname}/${JSON.parse(core.getInput('repo_relative_path'))}`;
+    let repo_path = `${__dirname}/${core.getInput('repo_relative_path')}`;
     let composer_path = `${__dirname}/composer.json`;
     let composer_data = JSON.parse(
         fs.readFileSync(composer_path)
