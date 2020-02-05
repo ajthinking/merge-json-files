@@ -3,28 +3,33 @@ const fs = require('fs');
 
 try {
     // Mission: merge `additions` into `target`
-    let additions = JSON.parse(core.getInput('additions'));
-    let target = core.getInput('target')
-    let targetPath = `${__dirname}/${target}`;
-    let targetData = JSON.parse(
-        fs.readFileSync(targetPath)
+    let repo_path = `${__dirname}/${JSON.parse(core.getInput('repo_relative_path'))}`;
+    let composer_path = `${__dirname}/composer.json`;
+    let composer_data = JSON.parse(
+        fs.readFileSync(composer_path)
     );
 
-    let resultData = {
-        ...targetData,
-        ...additions
-    }
-
     fs.writeFile(
-        targetPath,
-        JSON.stringify(resultData),
+        composer_path,
+        JSON.stringify({
+            ...composer_data,
+            ...{
+                repositories: [
+                    {
+                        type: "path",
+                        url: repo_path
+                    }
+                ]
+            }
+        }),
         function(err) {
             if(err) {
                 return console.log(err);
             }
-            console.log(`The file ${targetPath} was saved!`);
-            let resultData = fs.readFileSync(targetPath);
-            console.log("Now it has data: " + resultData);
+            console.log(`composer.json was updated!`);
+            let resultData = fs.readFileSync(composer_path);
+            console.log("Review new data below");
+            console.log(resultData);
         }); 
 
 } catch (error) {

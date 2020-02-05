@@ -1,14 +1,10 @@
-name: 'Merge JSON Files'
-description: 'Merge one json file into another.'
+name: 'Adds a file repository in composer.json'
+description: 'Adds (or replaces!) the `repositories` key in composer.json. Adds a file repo at provided relative path.'
 inputs:
-  target:
-    description: 'target path'
+  repo_relative_path:
+    description: 'relative path to repo'
     required: true
-    default: 'data1.json'
-  additions:
-    description: 'serialized json to add'
-    required: true
-    default: '{}'    
+    default: 'packages/your/repo'    
   
 runs:
   using: 'node12'

@@ -5,9 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test the merge
     steps:
-    - name: Merge two files
+    - name: Add the repo to composer.json
       id: merged
       uses: ajthinking/merge-json-files@v1.0.9
       with:
-        additions: '{"also": "this"}'
-        target: 'data1.json'
+        repo_relative_path: 'packages/Ajthinking/PHPFileManipulator'
