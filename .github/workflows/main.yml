@@ -9,5 +9,5 @@ jobs:
       id: merged
       uses: ajthinking/merge-json-files@v1.0.8
       with:
-        additions: 'data1.json'
+        additions: '{"also": "this"}'
         target: 'data2.json'

@@ -3,21 +3,16 @@ const fs = require('fs');
 
 try {
     // Mission: merge `additions` into `target`
-    let additions = core.getInput('additions')
+    let additions = JSON.parse(core.getInput('additions'));
     let target = core.getInput('target')
-    let additionsPath = `${__dirname}/${additions}`;
     let targetPath = `${__dirname}/${target}`;
-
-    let additionsData = JSON.parse(
-        fs.readFileSync(additionsPath)
-    );
     let targetData = JSON.parse(
         fs.readFileSync(targetPath)
     );
 
     let resultData = {
-        ...additionsData,
-        ...targetData
+        ...targetData,
+        ...additions
     }
 
     fs.writeFile(

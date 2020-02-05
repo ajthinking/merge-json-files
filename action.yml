@@ -1,14 +1,14 @@
 name: 'Merge JSON Files'
 description: 'Merge one json file into another.'
 inputs:
-  additions:
-    description: 'additions path'
-    required: true
-    default: 'data1.json'
   target:
     description: 'target path'
     required: true
-    default: 'data2.json'    
+    default: 'data1.json'
+  additions:
+    description: 'serialized json to add'
+    required: true
+    default: '{}'    
   
 runs:
   using: 'node12'
