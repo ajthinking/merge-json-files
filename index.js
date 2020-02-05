@@ -4,7 +4,7 @@ const fs = require('fs');
 try {
     let root = JSON.parse(core.getInput('runner_context')).workspace;
 
-    fs.readdir(root, function (err, files) {
+    fs.readdirSync(root, function (err, files) {
         //handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
