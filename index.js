@@ -4,7 +4,7 @@ const fs = require('fs');
 try {
     let workspace = JSON.parse(core.getInput('runner_context')).workspace;
     let repo_name = workspace.split("/").pop();
-    let root = repo_name == 'merge-json-files' ? `${workspace}/${repo_name}` : workspace;
+    let root = repo_name == 'merge-json-files' ? `${workspace}/${repo_name}` : workspace + '/..';
 
     fs.readdirSync(root, function (err, files) {
         //handling error
