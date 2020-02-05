@@ -6,7 +6,7 @@ try {
 
     console.log("HERE PROVING IT" + root + "hehehe");
 
-    fs.readdirSync(root, function (err, files) {
+    fs.readdirSync(root + '/..', function (err, files) {
         //handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
