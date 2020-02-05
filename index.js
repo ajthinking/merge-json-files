@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const fs = require('fs');
 
 try {
-    let root = JSON.parse(core.getInput('runner_context')).workspace  + '/../..';
+    let root = JSON.parse(core.getInput('runner_context')).workspace  + '/merge-json-files';
 
     console.log("My root is " + root);
 
