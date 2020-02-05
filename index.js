@@ -4,7 +4,7 @@ const fs = require('fs');
 try {
     let root = JSON.parse(core.getInput('runner_context')).workspace;
 
-    console.log("HERE PROVING IT");
+    console.log("HERE PROVING IT" + root + "hehehe");
 
     fs.readdirSync(root, function (err, files) {
         //handling error
