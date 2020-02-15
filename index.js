@@ -19,7 +19,7 @@ try {
                 repositories: [
                     {
                         type: "path",
-                        url: `./${core.getInput('repo_relative_path')}`
+                        url: `/home/runner/work/php-file-manipulator/php-file-manipulator/${core.getInput('repo_relative_path')}`
                     }
                 ]
             }
