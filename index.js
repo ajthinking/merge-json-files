@@ -6,29 +6,10 @@ try {
     let repo_name = workspace.split("/").pop();
     let root = repo_name == 'merge-json-files' ? `${workspace}/${repo_name}` : `${workspace}/${repo_name}/host`;
 
-    fs.readdirSync(root, function (err, files) {
-        //handling error
-        if (err) {
-            return console.log('Unable to scan directory: ' + err);
-        } 
-
-        console.log("Listing files :)!.")
-        //listing all files using forEach
-        files.forEach(function (file) {
-            // Do whatever you want to do with the file
-            console.log(file); 
-        });
-    });
-
-
-
-    let repo_path = `${root}/${core.getInput('repo_relative_path')}`;
     let composer_path = `${root}/composer.json`;
     let composer_data = JSON.parse(
         fs.readFileSync(composer_path)
     );
-
-    
 
     fs.writeFile(
         composer_path,
@@ -38,7 +19,7 @@ try {
                 repositories: [
                     {
                         type: "path",
-                        url: repo_path
+                        url: `./${core.getInput('repo_relative_path')}`
                     }
                 ]
             }
